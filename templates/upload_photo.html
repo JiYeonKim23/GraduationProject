@@ -9,11 +9,26 @@
 </head>
 
 <body>
-    <h2>사진 폴더 추가하기</h2>
+    <div>
+        <div class="message">
+        사진 폴더 혹은 사진들을 추가해주세요 <br>
+        </div>
+    </div>
+    <br>
     
+    <h2>사진 폴더 추가하기</h2>
+
     <div>
     <form method="POST" enctype="multipart/form-data" action="{{url_for('upload_pic_done')}}">
         <input type="file" webkitdirectory directory name="file[]" multiple="" />
+        <input type="submit" />
+        </form>
+    </div>
+
+    <h2>사진들 추가하기</h2>
+    <div>
+    <form method="POST" enctype="multipart/form-data" action="{{url_for('upload_pic_done')}}">
+        <input type="file" accept="image/*" name="file[]" multiple="" />
         <input type="submit" />
         </form>
     </div>

@@ -114,6 +114,15 @@ def upload_pic_done():
     photos_uploaded = True
     return render_template("main.html", flag = "pic",  video_uploaded = video_uploaded, photos_uploaded = photos_uploaded)
 
+@application.route("/upload_pics_done", methods=["POST"])
+def upload_pics_done():
+    uploaded_files = request.files.getlist("file[]")
+    for file in uploaded_files :
+        file.save("static/upload_images/"+file.filename)
+    global video_uploaded, photos_uploaded
+    photos_uploaded = True
+    return render_template("main.html", flag = "pic",  video_uploaded = video_uploaded, photos_uploaded = photos_uploaded)
+
 @application.route("/dividepics")
 def dividepics():
     myfacerec.dividepics(rotate_num)
