@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>동영상 업로드</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mycss.css') }}">
+</head>
+
+<body>
+    <h2>얼굴 동영상 업로드하기</h2>
+    
+    <div>
+    <div class="message">
+    얼굴을 상하좌우로 잘 움직인 5초 정도의 동영상을 업로드해주세요.<br>
+    동영상에는 인물이 1명만 있어야 합니다. <br>
+    </div>
+    </div>
+    <br>
+
+    <div>
+    <form method="POST" enctype="multipart/form-data" action="{{url_for('upload_done')}}">
+        <input type="file" accept="video/*" name="file" />
+        <input type="submit" />
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>사진</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/mycss.css') }}">
+        <META http-equiv="Cache-Control" content="no-store"/>
+    </head>
+    <body>
+        <div>
+        {% if img_date != "None" %} <!--사진 날짜가 존재하면-->
+            <h2>사진 찍은 날짜 : {{img_date}} </h2>
+        {% endif %}
+        </div>
+        
+        <div>
+        <img src="{{ url_for('static', filename=photo) }}">
+        </div>
+    </body>
+</html>

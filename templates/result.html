@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>결과 페이지</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META http-equiv="Cache-Control" content="no-store"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mycss.css') }}">
+</head>
+
+<body>
+    <br>
+    <div>
+        <a class="new_link" href="/remove_person_gallery">새로운 앨범에서 새로운 얼굴로 찾기</a> 
+    </div>
+    
+    <div>
+        {% if length_true != 0 %}
+            <a class="new_link" href="{{ url_for('static', filename='folder.zip') }}" download>해당 인물 폴더 다운로드</a>
+        {% endif %}
+    </div>
+    <br>
+
+    {% if length_true != 0 %}
+    <h2>일치 인물 : {{length_true}}명</h2>
+
+    <div>
+    <span class="span_grid">
+    {% for timage in result_true %}
+    <span class="span_image">
+        <a class="result_link" href={{url_for("image_info", index=timage[0])}}>
+            {{timage[0]}} : {{timage[1]}}% 확실
+         <img src="{{ url_for('static', filename='result_true/'+timage[0]) }}" width="200" height="200">
+        </a>
+    </span>
+    {% endfor %}
+    </span>
+    </div>
+
+    {% else %}
+    <h2 style="color: red;">일치하는 인물이 없습니다. 다른 사진 폴더를 첨부해주세요</h2>
+    {% endif %}
+    
+</body>
+
+</html>

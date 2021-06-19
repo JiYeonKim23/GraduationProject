@@ -1,0 +1,97 @@
+body {
+    background-color: #F2F2F2;
+}
+
+div,h1,h2,img {
+    display:flex;
+    justify-content: center; /*가로에서 가운데에 요소 배치*/
+}
+
+.message{
+    background-color: #BFBEBD;
+    /*border: black solid 2px;*/
+    width: fit-content;
+    padding: 20px;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+
+    border-radius: 1em;
+    padding:5px;
+    margin:5px;
+
+    color: black;    
+}
+
+.addlink {
+    border: black solid 2px;
+    background-color: #FBF37C;
+    width:200px;
+}
+
+#show_result_link {
+    border: black solid 2px;
+    background-color: #F2AA52;
+    width:150px;
+}    
+
+.goto_main_link {
+    border: black solid 2px;
+    background-color: #FBF37C;
+    width:200px;
+}  
+
+.new_link {
+    border: black solid 2px;
+    background-color: #F2AA52;
+    width:300px;
+}
+
+p {
+    border: red solid 1px;
+}
+
+.result_link {
+    color : black;
+    text-decoration: none;
+    
+    word-break: break-word;
+}
+
+@media(min-width:600px) {
+    .span_grid {
+        display: grid;
+        background-color: gray;
+        /*border : red 3px solid;*/
+        grid-template-columns: 1fr 1fr;
+        width:500px;
+    }
+}
+
+@media(min-width:800px) {
+    .span_grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        width:700px;
+    }
+}
+
+@media(min-width:1100px) {
+    .span_grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        width:1000px;
+    }
+}
+
+@media(min-width:1300px) {
+    .span_grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        width:1200px;
+    }
+}
+
+.span_image {
+    padding:10px;
+}

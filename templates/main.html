@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>main페이지</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mycss.css') }}">
+    <style>
+        h2 {
+        left: "50px";
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>얼굴이 담긴 동영상으로</h1><h1>사진 갤러리에서 일치하는 인물 찾기</h1>
+    </header>
+    
+    <div>
+    <div class="message">
+    {% if flag == "video" %}
+        동영상이 업로드되었습니다.<br>        
+        동영상이 정방향이 아니라면 정방향에 맞게 회전해주세요.<br><br>
+    {% endif %}
+    
+    {% if flag == "pic" %}
+        사진 폴더가 업로드되었습니다.<br>
+        (사진 폴더를 계속해서 추가할 수 있습니다.) <br><br>
+    {% endif %}
+    
+    {% if video_uploaded == False and photos_uploaded == False %}
+        검색하고자 하는 인물 1명의 얼굴이 잘 담긴 동영상과 <br>
+        탐색하고자 하는 사진 폴더를 업로드 해주세요.
+    {% elif video_uploaded == False %}
+            찾고자 하는 인물 1명의 얼굴이 잘 담긴 동영상을 업로드 해주세요.<br>
+    {% elif photos_uploaded == False %}
+            사진 폴더를 업로드 해주세요.
+    {% endif %}
+    
+    {% if video_uploaded == True and photos_uploaded == True %}
+        하단의 "결과 보기"를 눌러주세요.
+    {% endif %}  
+    <br>
+    </div>
+    </div>
+
+    <div>
+        <a class="addlink" href="/upload_video">얼굴 동영상 업로드하기</a>
+        <a class="addlink" href="/upload_photo">사진 폴더 추가하기</a> 
+    </div>
+    <br><br>
+    
+    {% if video_uploaded == True %}
+    <div>
+        <img src="{{ url_for('video_feed') }}", width="400", height = "400">
+    </div>
+    <br>
+
+    <div>
+    <form action="{{ url_for('rotate', index = 0) }}">
+        <button>동영상 시계 방향으로 90도 회전하기</button><br>
+    </form>
+    </div>
+    <br>
+    {% endif %}  
+        
+    {% if video_uploaded == True and photos_uploaded == True %}    
+    <div>
+        <a href="/dividepics" id="show_result_link" onclick="showit()"><b>결과 보기</b></a>
+    </div>
+    <br>
+    {% endif %}  
+    
+</body>
+
+</html>

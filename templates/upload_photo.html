@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>사진 폴더 업로드</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mycss.css') }}">
+</head>
+
+<body>
+    <h2>사진 폴더 추가하기</h2>
+    
+    <div>
+    <form method="POST" enctype="multipart/form-data" action="{{url_for('upload_pic_done')}}">
+        <input type="file" webkitdirectory directory name="file[]" multiple="" />
+        <input type="submit" />
+        </form>
+    </div>
+</body>
+
+</html>
