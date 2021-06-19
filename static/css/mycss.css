@@ -2,7 +2,7 @@ body {
     background-color: #F2F2F2;
 }
 
-div,h1,h2,img {
+div,h1,h2,h3,img {
     display:flex;
     justify-content: center; /*가로에서 가운데에 요소 배치*/
 }
